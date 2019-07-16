@@ -37,6 +37,11 @@
           </p>
         </div>
 
+        <div class="field">
+          <label>Don't See Your Author?</label>
+          {{new-author-modal onsave=(action (mut model.author))}}
+        </div>
+
         <div class="form-footer">
           <button type="submit" class="btn-submit">Save</button>
         </div>
