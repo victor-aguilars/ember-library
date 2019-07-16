@@ -1,4 +1,28 @@
-const duration = 600;
+const duration = 400;
+
+
+const slidingCardIn = [
+  {
+    pickNew: '.slide-out-bg',
+    use: ['fade', { duration }]
+  },
+  {
+    pickNew: '.slide-out-card',
+    use: ['wait', duration, { then: 'toLeft' }, { duration }]
+  }
+]
+
+const slidingCardOut = [
+  {
+    pickOld: '.slide-out-bg',
+    use: ['wait', duration, { then: 'fade' }, { duration }]
+  },
+  {
+    pickOld: '.slide-out-card',
+    use: ['toRight', { duration }]
+  }
+]
+
 
 export default function () {
 
@@ -18,6 +42,22 @@ export default function () {
     this.use('fade', { duration }),
     this.reverse('fade', { duration })
   );
+
+  this.transition(
+    this.fromRoute('author.index'),
+    this.use('explode', ...slidingCardIn
+    ),
+    this.reverse('explode', ...slidingCardOut)
+  );
+
+  this.transition(
+    this.fromRoute('book.index'),
+    this.use('explode', ...slidingCardIn
+    ),
+    this.reverse('explode', ...slidingCardOut)
+  );
+
+
 
   // Add your transitions here, like:
   //   this.transition(
