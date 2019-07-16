@@ -3,5 +3,7 @@ const { Model, attr } = DS;
 
 export default Model.extend({
   first: attr(),
-  last: attr()
+  last: attr(),
+
+  books: DS.hasMany('book')
 });
