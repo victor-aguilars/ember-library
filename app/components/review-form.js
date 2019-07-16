@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 
 export default Component.extend({
-  didReceiveAttrs(){
+  didReceiveAttrs() {
     this._super(...arguments);
 
     this.setProperties({
@@ -9,10 +9,10 @@ export default Component.extend({
       body: this.get('review.body'),
       book: this.get('review.book'),
     });
-  }, 
+  },
 
   actions: {
-    submitChanges(ev){
+    submitChanges(ev) {
       ev.preventDefault();
 
       this.onsubmit({
